@@ -17,6 +17,7 @@
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
+        <docker-hub-repo>https://hub.docker.com/r/jbcuningham</docker-hub-repo>
     </properties>
 
     <dependencies>
@@ -57,13 +58,9 @@
     </dependencyManagement>
 
     <build>
+        <finalName>config-server</finalName>
         <plugins>
             <plugin>
-                <configuration>
-                    <finalName>
-                        config-server
-                    </finalName>
-                </configuration>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
@@ -73,19 +70,24 @@
                 <version>1.4.9</version>
                 <executions>
                     <execution>
-                        <id>build</id>
-                        <phase>package</phase>
+                        <id>default</id>
                         <goals>
                             <goal>build</goal>
+                            <goal>push</goal>
                         </goals>
-                        <configuration>
-                            <repository>jbcuningham/${project.artifactId}</repository>
-                            <tag>latest</tag>
-                        </configuration>
                     </execution>
                 </executions>
+                <configuration>
+                    <repository>jbcuningham/config-server</repository>
+                    <username>jbcuningham</username>
+                    <password>haslehof</password>
+                    <finalName>config-server</finalName>
+                    <tag>latest</tag>
+                </configuration>
             </plugin>
         </plugins>
     </build>
 
 </project>
+
+<!--git push-->

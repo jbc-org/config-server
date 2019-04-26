@@ -1,4 +1,5 @@
 FROM openjdk:8-jdk-alpine
+MAINTAINER Jonathan Cuningham <jbcuningham@gmail.com>
 
 VOLUME /tmp
 
