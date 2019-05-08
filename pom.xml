@@ -8,7 +8,7 @@
         <version>2.1.3.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
+    <groupId>jbcuningham</groupId>
     <artifactId>config-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>config-server</name>
@@ -17,7 +17,6 @@
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
-        <docker-hub-repo>https://hub.docker.com/r/jbcuningham</docker-hub-repo>
     </properties>
 
     <dependencies>
@@ -71,6 +70,8 @@
                 <executions>
                     <execution>
                         <id>default</id>
+<!--                        This phase is here to allow pushing only the docker image without the maven repo push-->
+                        <phase>install</phase>
                         <goals>
                             <goal>build</goal>
                             <goal>push</goal>
@@ -79,8 +80,7 @@
                 </executions>
                 <configuration>
                     <repository>jbcuningham/config-server</repository>
-                    <username>jbcuningham</username>
-                    <password>haslehof</password>
+                    <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
                     <finalName>config-server</finalName>
                     <tag>latest</tag>
                 </configuration>
@@ -90,4 +90,3 @@
 
 </project>
 
-<!--git push-->
