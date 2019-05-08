@@ -71,6 +71,7 @@
                     <execution>
                         <id>default</id>
 <!--                        This phase is here to allow pushing only the docker image without the maven repo push-->
+<!--                        testing auto build-->
                         <phase>install</phase>
                         <goals>
                             <goal>build</goal>
