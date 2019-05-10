@@ -3,7 +3,7 @@ MAINTAINER Jonathan Cuningham <jbcuningham@gmail.com>
 
 VOLUME /tmp
 
-CMD ["/usr/bin/mvn", "clean", "package"]
+RUN ["/usr/bin/mvn", "clean", "package"]
 
 ARG JAR_FILE=./target/config-server.jar
 
