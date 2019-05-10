@@ -3,7 +3,7 @@ MAINTAINER Jonathan Cuningham <jbcuningham@gmail.com>
 
 VOLUME /tmp
 
-ARG JAR_FILE=/target/config-server.jar
+ARG JAR_FILE=./target/config-server.jar
 
 COPY ${JAR_FILE} app.jar
 
