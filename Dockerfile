@@ -3,7 +3,9 @@ MAINTAINER Jonathan Cuningham <jbcuningham@gmail.com>
 
 VOLUME /tmp
 
-ARG JAR_FILE=target/config-server.jar
+CMD ["/usr/bin/mvn", "clean", "package"]
+
+ARG JAR_FILE=./target/config-server.jar
 
 COPY ${JAR_FILE} app.jar
 
